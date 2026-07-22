@@ -1,0 +1,9 @@
+streamlit>=1.35
+pydeck>=0.9
+pandas>=2.0
+networkx>=3.2
+searoute>=1.6  # real maritime shipping-lane routing for the map (offline, bundled graph — see app.py build_path())
+pyomo>=6.7
+highspy>=1.7
+matplotlib>=3.8
+anthropic>=0.40  # optional — only needed if ANTHROPIC_API_KEY is set (see llm.py); app runs fine without it
