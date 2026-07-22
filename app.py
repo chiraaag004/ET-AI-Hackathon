@@ -88,38 +88,38 @@ st.markdown(
     """
     <style>
     [title] {cursor: help;}
-    .pt-card {background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;
-              padding:16px 20px;margin-bottom:12px;box-shadow:0 2px 8px rgba(15,23,42,0.06);}
-    .pt-card h4 {margin:0 0 8px 0;font-size:15px;color:#0f172a;}
-    .pt-card p {margin:0 0 6px 0;font-size:14.5px;line-height:1.55;color:#334155;}
+    .pt-card {background:#131c2e;border:1px solid #223049;border-radius:12px;
+              padding:16px 20px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.35);}
+    .pt-card h4 {margin:0 0 8px 0;font-size:15px;color:#f1f5f9;}
+    .pt-card p {margin:0 0 6px 0;font-size:14.5px;line-height:1.55;color:#cbd5e1;}
     .pt-card p:last-child {margin-bottom:0;}
-    .pt-card strong {color:#0369a1;}
-    .pt-situation {background:#f1f5f9;border:1px dashed #0f766e55;border-radius:10px;
-                   padding:12px 18px;margin-bottom:14px;font-size:14.5px;color:#475569;}
-    .pt-situation strong {color:#0f766e;}
-    .pt-accent-impact {border-left:4px solid #dc2626;}
-    .pt-accent-effect {border-left:4px solid #d97706;}
-    .pt-accent-actions {border-left:4px solid #0f766e;}
-    .pt-accent-plan {border-left:4px solid #2563eb;}
-    .pt-hero {background:linear-gradient(135deg,#f0fdfa 0%,#eff6ff 60%,#f8fafc 100%);
-              color:#0f172a;border:1px solid #cbd5e1;border-radius:14px;padding:22px 26px;
+    .pt-card strong {color:#7dd3fc;}
+    .pt-situation {background:#0e1626;border:1px dashed #2dd4bf55;border-radius:10px;
+                   padding:12px 18px;margin-bottom:14px;font-size:14.5px;color:#94a3b8;}
+    .pt-situation strong {color:#5eead4;}
+    .pt-accent-impact {border-left:4px solid #f87171;}
+    .pt-accent-effect {border-left:4px solid #fb923c;}
+    .pt-accent-actions {border-left:4px solid #2dd4bf;}
+    .pt-accent-plan {border-left:4px solid #60a5fa;}
+    .pt-hero {background:linear-gradient(135deg,#0b1220 0%,#132339 60%,#0f2f3a 100%);
+              color:#f1f5f9;border:1px solid #1e3a52;border-radius:14px;padding:22px 26px;
               margin-bottom:18px;}
-    .pt-hero h3 {margin:0 0 8px 0;color:#0f172a;font-size:19px;}
-    .pt-hero p {margin:0;font-size:14.5px;line-height:1.65;color:#334155;}
-    .pt-hero b {color:#0f766e;}
+    .pt-hero h3 {margin:0 0 8px 0;color:#ffffff;font-size:19px;}
+    .pt-hero p {margin:0;font-size:14.5px;line-height:1.65;color:#b7c5d6;}
+    .pt-hero b {color:#5eead4;}
     .pt-stat-grid {display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px;}
-    .pt-stat {background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;
+    .pt-stat {background:#131c2e;border:1px solid #223049;border-radius:10px;
               padding:14px 16px;flex:1;min-width:170px;transition:border-color .15s;}
-    .pt-stat:hover {border-color:#0f766e88;}
-    .pt-stat .lbl {font-size:11.5px;color:#64748b;text-transform:uppercase;
+    .pt-stat:hover {border-color:#2dd4bf88;}
+    .pt-stat .lbl {font-size:11.5px;color:#7c8ba1;text-transform:uppercase;
                    letter-spacing:.04em;margin-bottom:5px;}
-    .pt-stat .num {font-size:22px;font-weight:700;color:#0f172a;line-height:1.2;}
-    .pt-stat .sub {font-size:12.5px;color:#64748b;margin-top:5px;}
-    .pt-section-title {font-size:16px;font-weight:600;color:#0f172a;margin:6px 0 12px 0;
-                       padding-bottom:8px;border-bottom:2px solid #0f766e55;}
-    .pt-pointer {background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;
-                 padding:8px 14px;font-size:13px;color:#475569;margin-top:10px;}
-    .pt-pointer b {color:#0f766e;}
+    .pt-stat .num {font-size:22px;font-weight:700;color:#f1f5f9;line-height:1.2;}
+    .pt-stat .sub {font-size:12.5px;color:#8b9bb2;margin-top:5px;}
+    .pt-section-title {font-size:16px;font-weight:600;color:#f1f5f9;margin:6px 0 12px 0;
+                       padding-bottom:8px;border-bottom:2px solid #2dd4bf55;}
+    .pt-pointer {background:#0e1626;border:1px solid #223049;border-radius:8px;
+                 padding:8px 14px;font-size:13px;color:#8b9bb2;margin-top:10px;}
+    .pt-pointer b {color:#5eead4;}
     </style>
     """,
     unsafe_allow_html=True,
@@ -232,12 +232,12 @@ with hcol1:
 with hcol2:
     st.markdown(
         ("<div style='text-align:right;padding-top:18px;'>"
-         + ("<span style='background:#ccfbf1;color:#0f766e;border-radius:999px;"
-            "padding:3px 12px;font-size:12px;border:1px solid #99f6e4;'>live LLM</span>" if llm_configured() else
-            "<span style='background:#fef3c7;color:#b45309;border-radius:999px;"
-            "padding:3px 12px;font-size:12px;border:1px solid #fde68a;'>rule-based signal</span>")
-         + " <span style='background:#ccfbf1;color:#0f766e;border-radius:999px;"
-           "padding:3px 12px;font-size:12px;border:1px solid #99f6e4;'>solver ready</span></div>"),
+         + ("<span style='background:#0e3b34;color:#5eead4;border-radius:999px;"
+            "padding:3px 12px;font-size:12px;border:1px solid #134e4a;'>live LLM</span>" if llm_configured() else
+            "<span style='background:#3a2a0e;color:#fbbf24;border-radius:999px;"
+            "padding:3px 12px;font-size:12px;border:1px solid #78350f;'>rule-based signal</span>")
+         + " <span style='background:#0e3b34;color:#5eead4;border-radius:999px;"
+           "padding:3px 12px;font-size:12px;border:1px solid #134e4a;'>solver ready</span></div>"),
         unsafe_allow_html=True,
     )
 
@@ -439,7 +439,7 @@ def render_map(scenario_key, ef, r1=None, n_days=7, signal=None, headline_id=Non
         map_layers.append(pdk.Layer(
             "ScatterplotLayer", data=nodes_render, get_position=["lon", "lat"], get_fill_color="color",
             get_radius="radius", pickable=True, opacity=0.85, stroked=True,
-            get_line_color=[15, 23, 42], line_width_min_pixels=1,
+            get_line_color=[255, 255, 255], line_width_min_pixels=1,
         ))
         if signal and signal.get("corridor") in corridor_lookup:
             ev_lon, ev_lat = corridor_lookup[signal["corridor"]]
@@ -448,14 +448,14 @@ def render_map(scenario_key, ef, r1=None, n_days=7, signal=None, headline_id=Non
             event_df = pd.DataFrame([{"lon": ev_lon + 3.0, "lat": ev_lat + 3.0, "name": event_node["name"],
                                        "type": f"event ({event_node['extraction_method']})"}])
             map_layers.append(pdk.Layer(
-                "ScatterplotLayer", data=event_df, get_position=["lon", "lat"], get_fill_color=[15, 23, 42],
+                "ScatterplotLayer", data=event_df, get_position=["lon", "lat"], get_fill_color=[255, 255, 255],
                 get_radius=70000, pickable=True, opacity=0.95, stroked=True,
                 get_line_color=HIGHLIGHT_COLOR, line_width_min_pixels=3,
             ))
         deck = pdk.Deck(
             layers=map_layers, initial_view_state=pdk.ViewState(latitude=15, longitude=55, zoom=2.3, pitch=25),
-            map_style="light",
-            tooltip={"html": "<b>{name}</b><br/>type: {type}", "style": {"backgroundColor": "#ffffff", "color": "#0f172a", "border": "1px solid #cbd5e1"}},
+            map_style="dark",
+            tooltip={"html": "<b>{name}</b><br/>type: {type}", "style": {"backgroundColor": "steelblue", "color": "white"}},
         )
         st.pydeck_chart(deck, use_container_width=True)
         cap = "Width scales with capacity."
@@ -593,19 +593,19 @@ def render_technical_breakdown(default_scenario_key, pill_key):
     st.markdown("<div class='pt-section-title'>Cost and supplier-shift charts</div>", unsafe_allow_html=True)
     worst = r0["worst_scenario"]
     money_fig, (money_ax1, money_ax2) = plt.subplots(1, 2, figsize=(9, 3.2))
-    money_fig.patch.set_facecolor("#ffffff")
+    money_fig.patch.set_facecolor("#131c2e")
     for ax, title, vals in (
         (money_ax1, "Expected cost ($/day)", [r0["expected_cost_usd_per_day"], r1["expected_cost_usd_per_day"]]),
         (money_ax2, f"Worst-case ({worst}) cost ($/day)",
          [r0["scenario_costs_usd_per_day"][worst], r1["scenario_costs_usd_per_day"][worst]]),
     ):
-        ax.set_facecolor("#ffffff")
-        ax.bar(["Cheapest on average", "Risk-averse"], vals, color=["#0f766e", "#dc2626"])
-        ax.set_title(title, fontsize=10, color="#0f172a")
+        ax.set_facecolor("#131c2e")
+        ax.bar(["Cheapest on average", "Risk-averse"], vals, color=["#2dd4bf", "#f87171"])
+        ax.set_title(title, fontsize=10, color="#e2e8f0")
         ax.ticklabel_format(axis="y", style="plain")
-        ax.tick_params(colors="#475569")
+        ax.tick_params(colors="#94a3b8")
         for spine in ax.spines.values():
-            spine.set_color("#cbd5e1")
+            spine.set_color("#334155")
     money_fig.tight_layout()
     st.pyplot(money_fig, use_container_width=True)
 
@@ -621,15 +621,15 @@ def render_technical_breakdown(default_scenario_key, pill_key):
     if shift_rows:
         shift_df = pd.DataFrame(shift_rows).sort_values("shift (kbpd)")
         shift_fig, shift_ax = plt.subplots(figsize=(8, 0.45 * len(shift_df) + 0.5))
-        shift_fig.patch.set_facecolor("#ffffff")
-        shift_ax.set_facecolor("#ffffff")
-        bar_colors = ["#dc2626" if s < 0 else "#0f766e" for s in shift_df["shift (kbpd)"]]
+        shift_fig.patch.set_facecolor("#131c2e")
+        shift_ax.set_facecolor("#131c2e")
+        bar_colors = ["#f87171" if s < 0 else "#2dd4bf" for s in shift_df["shift (kbpd)"]]
         shift_ax.barh(shift_df["supplier"], shift_df["shift (kbpd)"], color=bar_colors)
-        shift_ax.axvline(0, color="#94a3b8", linewidth=0.8)
-        shift_ax.set_xlabel("Contract change (kbpd)", color="#0f172a")
-        shift_ax.tick_params(colors="#475569")
+        shift_ax.axvline(0, color="#64748b", linewidth=0.8)
+        shift_ax.set_xlabel("Contract change (kbpd)", color="#e2e8f0")
+        shift_ax.tick_params(colors="#94a3b8")
         for spine in shift_ax.spines.values():
-            spine.set_color("#cbd5e1")
+            spine.set_color("#334155")
         shift_fig.tight_layout()
         st.pyplot(shift_fig, use_container_width=True)
 
@@ -639,15 +639,15 @@ def render_technical_breakdown(default_scenario_key, pill_key):
         ref_df = ref_df[ref_df["gap_kbpd"] > 0].sort_values("utilization_pct")
         if not ref_df.empty:
             util_fig, util_ax = plt.subplots(figsize=(8, 0.45 * len(ref_df) + 0.5))
-            util_fig.patch.set_facecolor("#ffffff")
-            util_ax.set_facecolor("#ffffff")
-            bar_colors = ["#dc2626" if u < 60 else "#d97706" if u < 90 else "#0f766e" for u in ref_df["utilization_pct"]]
+            util_fig.patch.set_facecolor("#131c2e")
+            util_ax.set_facecolor("#131c2e")
+            bar_colors = ["#f87171" if u < 60 else "#fb923c" if u < 90 else "#2dd4bf" for u in ref_df["utilization_pct"]]
             util_ax.barh(ref_df["refinery"], ref_df["utilization_pct"], color=bar_colors)
             util_ax.set_xlim(0, 100)
-            util_ax.set_xlabel("% of demand still served", color="#0f172a")
-            util_ax.tick_params(colors="#475569")
+            util_ax.set_xlabel("% of demand still served", color="#e2e8f0")
+            util_ax.tick_params(colors="#94a3b8")
             for spine in util_ax.spines.values():
-                spine.set_color("#cbd5e1")
+                spine.set_color("#334155")
             util_fig.tight_layout()
             st.pyplot(util_fig, use_container_width=True)
         st.dataframe(pd.DataFrame(snapshot["worst_hit_refineries"]), use_container_width=True, hide_index=True)

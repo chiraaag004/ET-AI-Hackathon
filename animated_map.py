@@ -66,26 +66,26 @@ def build_map_html(payload: dict, height: int = 600) -> str:
     """
     data_json = json.dumps(payload)
     return """
-<div id="wrap" style="position:relative;width:100%;height:""" + str(height - 10) + """px;background:#dbeafe;border-radius:8px;overflow:hidden;font-family:sans-serif;">
+<div id="wrap" style="position:relative;width:100%;height:""" + str(height - 10) + """px;background:#0b1020;border-radius:8px;overflow:hidden;font-family:sans-serif;">
   <div id="map" style="position:absolute;inset:0;"></div>
-  <div id="fallback" style="display:none;position:absolute;inset:0;color:#475569;align-items:center;justify-content:center;font-size:13px;">
+  <div id="fallback" style="display:none;position:absolute;inset:0;color:#8aa;align-items:center;justify-content:center;font-size:13px;">
     deck.gl unavailable (offline?) — use the static map toggle in the sidebar.
   </div>
-  <div id="hud" style="position:absolute;top:10px;left:10px;background:rgba(255,255,255,0.92);border:1px solid #cbd5e1;border-radius:8px;padding:8px 12px;color:#0f172a;font-size:12px;max-width:320px;box-shadow:0 2px 8px rgba(15,23,42,0.08);">
+  <div id="hud" style="position:absolute;top:10px;left:10px;background:rgba(10,14,26,0.82);border:1px solid #2a3350;border-radius:8px;padding:8px 12px;color:#dfe7f5;font-size:12px;max-width:320px;">
     <div id="hud-title" style="font-weight:600;font-size:13px;margin-bottom:2px;"></div>
-    <div id="hud-sub" style="color:#475569;"></div>
-    <div id="hud-alts" style="display:none;margin-top:6px;padding-top:6px;border-top:1px solid #cbd5e1;"></div>
+    <div id="hud-sub" style="color:#8fa0c0;"></div>
+    <div id="hud-alts" style="display:none;margin-top:6px;padding-top:6px;border-top:1px solid #2a3350;"></div>
   </div>
-  <div id="controls" style="display:none;position:absolute;bottom:10px;left:10px;right:10px;background:rgba(255,255,255,0.94);border:1px solid #cbd5e1;border-radius:8px;padding:8px 14px;color:#0f172a;font-size:12px;align-items:center;gap:12px;box-shadow:0 2px 8px rgba(15,23,42,0.08);">
-    <button id="playbtn" style="background:#0f766e;color:#fff;border:none;border-radius:6px;padding:6px 14px;font-size:13px;cursor:pointer;">&#9654; Play disruption</button>
-    <input id="dayscrub" type="range" min="0" step="0.01" value="0" style="flex:1;accent-color:#0f766e;">
+  <div id="controls" style="display:none;position:absolute;bottom:10px;left:10px;right:10px;background:rgba(10,14,26,0.85);border:1px solid #2a3350;border-radius:8px;padding:8px 14px;color:#dfe7f5;font-size:12px;align-items:center;gap:12px;">
+    <button id="playbtn" style="background:#1d9e75;color:#fff;border:none;border-radius:6px;padding:6px 14px;font-size:13px;cursor:pointer;">&#9654; Play disruption</button>
+    <input id="dayscrub" type="range" min="0" step="0.01" value="0" style="flex:1;accent-color:#1d9e75;">
     <span id="daylabel" style="min-width:64px;font-weight:600;"></span>
-    <span style="color:#475569;">SPR draw</span><span id="sprval" style="min-width:70px;font-weight:600;color:#7c3aed;"></span>
-    <span style="color:#475569;">unmet</span><span id="shortval" style="min-width:70px;font-weight:600;color:#dc2626;"></span>
+    <span style="color:#8fa0c0;">SPR draw</span><span id="sprval" style="min-width:70px;font-weight:600;color:#b48cf2;"></span>
+    <span style="color:#8fa0c0;">unmet</span><span id="shortval" style="min-width:70px;font-weight:600;color:#ef5b6e;"></span>
   </div>
-  <div id="legend" style="position:absolute;top:10px;right:10px;background:rgba(255,255,255,0.92);border:1px solid #cbd5e1;border-radius:8px;padding:6px 10px;color:#475569;font-size:11px;line-height:1.7;box-shadow:0 2px 8px rgba(15,23,42,0.08);">
-    <span style="color:#0f766e;">&#9644;</span> normal &nbsp;<span style="color:#dc2626;">&#9644;</span> disrupted &nbsp;<span style="color:#d97706;">&#9644;</span> reroute &nbsp;<span style="color:#7c3aed;">&#9679;</span> SPR<br/>
-    <span style="color:#ea580c;">&#9644;</span> domestic &nbsp;<span style="color:#64748b;">&#9644;</span> port&rarr;refinery
+  <div id="legend" style="position:absolute;top:10px;right:10px;background:rgba(10,14,26,0.82);border:1px solid #2a3350;border-radius:8px;padding:6px 10px;color:#8fa0c0;font-size:11px;line-height:1.7;">
+    <span style="color:#2a9d8f;">&#9644;</span> normal &nbsp;<span style="color:#ef233c;">&#9644;</span> disrupted &nbsp;<span style="color:#ffb703;">&#9644;</span> reroute &nbsp;<span style="color:#b48cf2;">&#9679;</span> SPR<br/>
+    <span style="color:#fb8500;">&#9644;</span> domestic &nbsp;<span style="color:#465a6e;">&#9644;</span> port&rarr;refinery
   </div>
 </div>
 <script src="https://unpkg.com/deck.gl@9.0.34/dist.min.js"></script>
@@ -108,7 +108,7 @@ const DATA = """ + data_json + """;
   if (DATA.top_growers && DATA.top_growers.length) {
     const altsEl = document.getElementById("hud-alts");
     altsEl.style.display = "block";
-    altsEl.innerHTML = "<div style='font-weight:600;color:#0f172a;'>Better alternatives (adapted plan)</div>" +
+    altsEl.innerHTML = "<div style='font-weight:600;color:#dfe7f5;'>Better alternatives (adapted plan)</div>" +
       DATA.top_growers.map(g =>
         "<div>" + g.name + ": " + Math.round(g.day0).toLocaleString() + " &rarr; " +
         Math.round(g.adapted).toLocaleString() + " kbpd</div>"
@@ -145,7 +145,7 @@ const DATA = """ + data_json + """;
       const land = topojson.feature(topo, topo.objects.land);
       landLayer = new deck.GeoJsonLayer({
         id: "land", data: land, stroked: true, filled: true,
-        getFillColor: [248, 250, 252, 255], getLineColor: [148, 163, 184, 255],
+        getFillColor: [24, 32, 54, 255], getLineColor: [42, 51, 80, 255],
         lineWidthMinPixels: 1,
       });
     })
@@ -225,7 +225,7 @@ const DATA = """ + data_json + """;
       new deck.ScatterplotLayer({id:"nodes", data: DATA.nodes,
         getPosition: x=>[x.lon,x.lat], getFillColor: x=>[...x.color, 220],
         getRadius: x=>x.radius, radiusUnits:"meters", stroked:true,
-        getLineColor:[15,23,42,160], lineWidthMinPixels:1, pickable:true}),
+        getLineColor:[255,255,255,160], lineWidthMinPixels:1, pickable:true}),
     );
 
     if (DATA.corridor && DATA.severity > 0) {
@@ -241,7 +241,7 @@ const DATA = """ + data_json + """;
     }
     if (DATA.event) {
       layers.push(new deck.ScatterplotLayer({id:"event", data:[DATA.event],
-        getPosition: x=>[x.lon,x.lat], getFillColor:[15,23,42,240],
+        getPosition: x=>[x.lon,x.lat], getFillColor:[255,255,255,240],
         stroked:true, getLineColor:[239,35,60,255], lineWidthMinPixels:3,
         getRadius: 60000, radiusUnits:"meters", pickable:true}));
     }
@@ -280,7 +280,7 @@ const DATA = """ + data_json + """;
       html: "<b>" + (object.name || object.id || "") + "</b>" +
             (object._flow != null ? "<br/>flow: " + Math.round(object._flow).toLocaleString() + " kbpd" : "") +
             (object.cap != null && object._flow == null ? "<br/>capacity: " + Math.round(object.cap).toLocaleString() + " kbpd" : ""),
-      style: {backgroundColor: "#ffffff", color: "#0f172a", fontSize: "12px", borderRadius: "6px", border: "1px solid #cbd5e1", boxShadow: "0 2px 8px rgba(15,23,42,0.12)"}
+      style: {backgroundColor: "#182036", color: "#dfe7f5", fontSize: "12px", borderRadius: "6px"}
     },
   });
 
